@@ -11,7 +11,15 @@
     /// </summary>
     public class NinjectNancyBootstrapper : NancyBootstrapperWithRequestContainerBase<IKernel>
     {
-        /// <summary>
+      /// <summary>
+      /// Gets all registered startup tasks
+      /// </summary>
+      /// <returns>An <see cref="System.Collections.Generic.IEnumerable{T}"/> instance containing <see cref="IStartup"/> instances. </returns>
+      protected override IEnumerable<IStartup> GetStartupTasks() { 
+        return this.ApplicationContainer.GetAll<IStartup>();
+      }
+
+      /// <summary>
         /// Configures the container by registrating of default 
         /// INancyModuleCatalog and IRouteResolver.
         /// </summary>
@@ -84,7 +92,7 @@
             {
                 foreach (Type implementationType in collectionTypeRegistration.ImplementationTypes)
                 {
-                    container.Bind(collectionTypeRegistration.RegistrationType).To(implementationType);
+                    container.Bind(collectionTypeRegistration.RegistrationType).To(implementationType).InSingletonScope();
                 }
             }
         }
