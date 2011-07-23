@@ -16,7 +16,7 @@ Albacore.configure do |config|
 end
 
 desc "Compiles solution and runs unit tests"
-task :default => [:clean, :version, :compile, :xunit, :publish, :package]
+task :default => [:clean, :version, :compile, :publish, :package]
 
 #Add the folders that should be cleaned as part of the clean task
 CLEAN.include(OUTPUT)
