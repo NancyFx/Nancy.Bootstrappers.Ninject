@@ -3,7 +3,7 @@ require 'albacore'
 require 'rake/clean'
 require 'rexml/document'
 
-NANCY_VERSION = "0.6.0"
+NANCY_VERSION = "0.7.1"
 OUTPUT = "build"
 CONFIGURATION = 'Release'
 SHARED_ASSEMBLY_INFO = 'src/SharedAssemblyInfo.cs'
@@ -28,7 +28,7 @@ assemblyinfo :version => [:clean] do |asm|
 	asm.company_name = "Nancy"
 	asm.product_name = "Nancy.Bootstrappers.Ninject"
 	asm.title = "Nancy.Bootstrappers.Ninject"
-	asm.description = "An Ninject Bootstrapper for the Nancy web framework"
+	asm.description = "A Ninject Bootstrapper for the Nancy web framework"
 	asm.copyright = "Copyright (C) Andreas Hakansson, Steven Robbins and contributors"
     asm.output_file = SHARED_ASSEMBLY_INFO
 end
