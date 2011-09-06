@@ -9,7 +9,7 @@
     /// <summary>
     /// Ninject IoC Container Bootstrapper  
     /// </summary>
-    public class NinjectNancyBootstrapper : NancyBootstrapperWithRequestContainerBase<IKernel>
+    public abstract class NinjectNancyBootstrapper : NancyBootstrapperWithRequestContainerBase<IKernel>
     {
         /// <summary>
         /// Gets all registered startup tasks
@@ -18,16 +18,6 @@
         protected override IEnumerable<IStartup> GetStartupTasks()
         { 
             return this.ApplicationContainer.GetAll<IStartup>();
-        }
-
-        /// <summary>
-        /// Configures the container by registrating of default 
-        /// INancyModuleCatalog and IRouteResolver.
-        /// </summary>
-        /// <param name="container">Container instance</param>
-        protected override void ConfigureApplicationContainer(IKernel container)
-        {
-            this.RegisterBootstrapperTypes(container);
         }
 
         /// <summary>
