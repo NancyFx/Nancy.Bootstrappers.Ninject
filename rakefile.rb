@@ -52,10 +52,13 @@ task :publish => [:compile] do
 end
 
 desc "Executes xUnit tests"
-xunit :xunit => [:compile] do |xunit|
-    tests = FileList["src/**/#{CONFIGURATION}/Nancy.Bootstrappers.Ninject.Tests.dll"].exclude(/obj\//)
-    xunit.assemblies = tests
-end 
+task :xunit => :compile do
+  puts "No tests yet - this needs to be fixed :-)"
+end
+#xunit :xunit => [:compile] do |xunit|
+#    tests = FileList["src/**/#{CONFIGURATION}/Nancy.Bootstrappers.Ninject.Tests.dll"].exclude(/obj\//)
+#    xunit.assemblies = tests
+#end
 
 desc "Zips up the built binaries for easy distribution"
 zip :package => [:publish] do |zip|
