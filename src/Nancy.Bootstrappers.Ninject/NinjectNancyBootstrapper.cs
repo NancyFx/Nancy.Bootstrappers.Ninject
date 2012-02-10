@@ -1,6 +1,5 @@
 ﻿namespace Nancy.Bootstrappers.Ninject
 {
-    using System;
     using System.Collections.Generic;
     using Nancy.Bootstrapper;
     using global::Ninject;
@@ -65,7 +64,7 @@
         /// <param name="typeRegistrations">Type registrations to register</param>
         protected override sealed void RegisterTypes(IKernel container, IEnumerable<TypeRegistration> typeRegistrations)
         {
-            foreach (TypeRegistration typeRegistration in typeRegistrations)
+            foreach (var typeRegistration in typeRegistrations)
             {
                 container.Bind(typeRegistration.RegistrationType).To(typeRegistration.ImplementationType).InSingletonScope();
             }
@@ -79,9 +78,9 @@
         /// <param name="collectionTypeRegistrations">Collection type registrations to register</param>
         protected override sealed void RegisterCollectionTypes(IKernel container, IEnumerable<CollectionTypeRegistration> collectionTypeRegistrations)
         {
-            foreach (CollectionTypeRegistration collectionTypeRegistration in collectionTypeRegistrations)
+            foreach (var collectionTypeRegistration in collectionTypeRegistrations)
             {
-                foreach (Type implementationType in collectionTypeRegistration.ImplementationTypes)
+                foreach (var implementationType in collectionTypeRegistration.ImplementationTypes)
                 {
                     container.Bind(collectionTypeRegistration.RegistrationType).To(implementationType).InSingletonScope();
                 }
@@ -95,7 +94,7 @@
         /// <param name="moduleRegistrationTypes">NancyModule types</param>
         protected override sealed void RegisterRequestContainerModules(IKernel container, IEnumerable<ModuleRegistration> moduleRegistrationTypes)
         {
-            foreach (ModuleRegistration moduleRegistrationType in moduleRegistrationTypes)
+            foreach (var moduleRegistrationType in moduleRegistrationTypes)
             {
                 container.Bind(typeof (NancyModule)).To(moduleRegistrationType.ModuleType).InSingletonScope().Named(moduleRegistrationType.ModuleKey);
             }
@@ -108,7 +107,7 @@
         /// <param name="instanceRegistrations">Instance registration types</param>
         protected override void RegisterInstances(IKernel container, IEnumerable<InstanceRegistration> instanceRegistrations)
         {
-            foreach (InstanceRegistration instanceRegistration in instanceRegistrations)
+            foreach (var instanceRegistration in instanceRegistrations)
             {
                 container.Bind(instanceRegistration.RegistrationType).ToConstant(instanceRegistration.Implementation);
             }
