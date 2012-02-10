@@ -6,7 +6,7 @@
     using global::Ninject.Extensions.ChildKernel;
 
     /// <summary>
-    /// Ninject IoC Container Bootstrapper  
+    /// Nancy bootstrapper for the Ninject container.
     /// </summary>
     public abstract class NinjectNancyBootstrapper : NancyBootstrapperWithRequestContainerBase<IKernel>
     {
