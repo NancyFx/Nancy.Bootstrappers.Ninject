@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.Bootstrappers.Ninject", "Nancy.Bootstrappers.Ninject\Nancy.Bootstrappers.Ninject.csproj", "{760A88F1-7CEA-47FE-86AC-4F75609100F2}"
@@ -10,19 +9,33 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		MonoDebug|Any CPU = MonoDebug|Any CPU
+		MonoRelease|Any CPU = MonoRelease|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{760A88F1-7CEA-47FE-86AC-4F75609100F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{760A88F1-7CEA-47FE-86AC-4F75609100F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{760A88F1-7CEA-47FE-86AC-4F75609100F2}.MonoDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{760A88F1-7CEA-47FE-86AC-4F75609100F2}.MonoDebug|Any CPU.Build.0 = Debug|Any CPU
+		{760A88F1-7CEA-47FE-86AC-4F75609100F2}.MonoRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{760A88F1-7CEA-47FE-86AC-4F75609100F2}.MonoRelease|Any CPU.Build.0 = Release|Any CPU
 		{760A88F1-7CEA-47FE-86AC-4F75609100F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{760A88F1-7CEA-47FE-86AC-4F75609100F2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{34576216-0DCA-4B0F-A0DC-9075E75A676F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{34576216-0DCA-4B0F-A0DC-9075E75A676F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34576216-0DCA-4B0F-A0DC-9075E75A676F}.MonoDebug|Any CPU.ActiveCfg = MonoDebug|Any CPU
+		{34576216-0DCA-4B0F-A0DC-9075E75A676F}.MonoDebug|Any CPU.Build.0 = MonoDebug|Any CPU
+		{34576216-0DCA-4B0F-A0DC-9075E75A676F}.MonoRelease|Any CPU.ActiveCfg = MonoRelease|Any CPU
+		{34576216-0DCA-4B0F-A0DC-9075E75A676F}.MonoRelease|Any CPU.Build.0 = MonoRelease|Any CPU
 		{34576216-0DCA-4B0F-A0DC-9075E75A676F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34576216-0DCA-4B0F-A0DC-9075E75A676F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F429142-D707-4C24-AC2C-15F6CE423C31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8F429142-D707-4C24-AC2C-15F6CE423C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F429142-D707-4C24-AC2C-15F6CE423C31}.MonoDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F429142-D707-4C24-AC2C-15F6CE423C31}.MonoDebug|Any CPU.Build.0 = Debug|Any CPU
+		{8F429142-D707-4C24-AC2C-15F6CE423C31}.MonoRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{8F429142-D707-4C24-AC2C-15F6CE423C31}.MonoRelease|Any CPU.Build.0 = Release|Any CPU
 		{8F429142-D707-4C24-AC2C-15F6CE423C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F429142-D707-4C24-AC2C-15F6CE423C31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

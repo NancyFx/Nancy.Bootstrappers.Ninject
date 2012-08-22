@@ -53,10 +53,14 @@
     <Compile Include="..\..\dependencies\Nancy\src\Nancy.Tests\ShouldExtensions.cs">
       <Link>ShouldExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\..\dependencies\Nancy\src\Nancy.Tests\Unit\Bootstrapper\Base\BootstrapperBaseFixtureBase.cs">
+      <Link>BootstrapperBaseFixtureBase.cs</Link>
+    </Compile>
     <Compile Include="..\..\dependencies\Nancy\src\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="FakeNinjectNancyBootstrapper.cs" />
+    <Compile Include="NinjectBootstrapperBaseFixture.cs" />
     <Compile Include="NinjectNancyBootstrapperFixture.cs" />
   </ItemGroup>
   <ItemGroup>
