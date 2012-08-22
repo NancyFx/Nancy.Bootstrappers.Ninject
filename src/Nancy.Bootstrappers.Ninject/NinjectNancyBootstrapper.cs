@@ -1,6 +1,7 @@
 ﻿namespace Nancy.Bootstrappers.Ninject
 {
     using System.Collections.Generic;
+    using Diagnostics;
     using Nancy.Bootstrapper;
     using global::Ninject;
     using global::Ninject.Extensions.ChildKernel;
@@ -10,6 +11,15 @@
     /// </summary>
     public abstract class NinjectNancyBootstrapper : NancyBootstrapperWithRequestContainerBase<IKernel>
     {
+        /// <summary>
+        /// Gets the diagnostics for intialisation
+        /// </summary>
+        /// <returns>IDiagnostics implementation</returns>
+        protected override IDiagnostics GetDiagnostics()
+        {
+            return this.ApplicationContainer.Get<IDiagnostics>();
+        }
+
         /// <summary>
         /// Gets all registered application startup tasks
         /// </summary>
