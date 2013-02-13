@@ -115,7 +115,7 @@
         {
             foreach (var moduleRegistrationType in moduleRegistrationTypes)
             {
-                container.Bind(typeof (NancyModule)).To(moduleRegistrationType.ModuleType).InSingletonScope().Named(moduleRegistrationType.ModuleKey);
+                container.Bind(typeof (INancyModule)).To(moduleRegistrationType.ModuleType).InSingletonScope().Named(moduleRegistrationType.ModuleKey);
             }
         }
 
@@ -146,9 +146,9 @@
         /// </summary>
         /// <param name="container">Container to use</param>
         /// <returns>Collection of NancyModule instances</returns>
-        protected override sealed IEnumerable<NancyModule> GetAllModules(IKernel container)
+        protected override sealed IEnumerable<INancyModule> GetAllModules(IKernel container)
         {
-            return container.GetAll<NancyModule>();
+            return container.GetAll<INancyModule>();
         }
 
         /// <summary>
@@ -157,9 +157,9 @@
         /// <param name="container">Container to use</param>
         /// <param name="moduleKey">Module key of the module</param>
         /// <returns>NancyModule instance</returns>
-        protected override sealed NancyModule GetModuleByKey(IKernel container, string moduleKey)
+        protected override sealed INancyModule GetModuleByKey(IKernel container, string moduleKey)
         {
-            return container.Get<NancyModule>(moduleKey);
+            return container.Get<INancyModule>(moduleKey);
         }
     }
 }
