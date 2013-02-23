@@ -1,5 +1,6 @@
 ﻿namespace Nancy.Bootstrappers.Ninject
 {
+    using System;
     using System.Collections.Generic;
     using Diagnostics;
     using Nancy.Bootstrapper;
@@ -45,15 +46,6 @@
         protected override sealed INancyEngine GetEngineInternal()
         {
             return this.ApplicationContainer.Get<INancyEngine>();
-        }
-
-        /// <summary>
-        /// Get the moduleKey generator
-        /// </summary>
-        /// <returns>IModuleKeyGenerator instance</returns>
-        protected override sealed IModuleKeyGenerator GetModuleKeyGenerator()
-        {
-            return this.ApplicationContainer.Get<IModuleKeyGenerator>();
         }
 
         /// <summary>
@@ -115,7 +107,7 @@
         {
             foreach (var moduleRegistrationType in moduleRegistrationTypes)
             {
-                container.Bind(typeof (INancyModule)).To(moduleRegistrationType.ModuleType).InSingletonScope().Named(moduleRegistrationType.ModuleKey);
+                container.Bind(typeof (INancyModule)).To(moduleRegistrationType.ModuleType).Named(moduleRegistrationType.ModuleType.FullName);
             }
         }
 
@@ -152,14 +144,16 @@
         }
 
         /// <summary>
-        /// Retreive a specific module instance from the container by its key
+        /// Retreive a specific module instance from the container
         /// </summary>
         /// <param name="container">Container to use</param>
-        /// <param name="moduleKey">Module key of the module</param>
-        /// <returns>NancyModule instance</returns>
-        protected override sealed INancyModule GetModuleByKey(IKernel container, string moduleKey)
+        /// <param name="moduleType">Type of the module</param>
+        /// <returns>An <see cref="INancyModule"/> instance</returns>
+        protected override INancyModule GetModule(IKernel container, Type moduleType)
         {
-            return container.Get<INancyModule>(moduleKey);
+            container.Bind<INancyModule>().To(moduleType);
+
+            return container.Get(moduleType) as INancyModule;
         }
     }
 }

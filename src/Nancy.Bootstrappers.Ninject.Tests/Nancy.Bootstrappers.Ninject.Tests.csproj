@@ -59,6 +59,8 @@
     <Compile Include="..\..\dependencies\Nancy\src\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="FakeNancyModuleWithBasePath.cs" />
+    <Compile Include="FakeNancyModuleWithDependency.cs" />
     <Compile Include="FakeNinjectNancyBootstrapper.cs" />
     <Compile Include="NinjectBootstrapperBaseFixture.cs" />
     <Compile Include="NinjectNancyBootstrapperFixture.cs" />
