@@ -15,7 +15,7 @@
         /// <summary>
         /// Gets the diagnostics for intialisation
         /// </summary>
-        /// <returns>IDiagnostics implementation</returns>
+        /// <returns>An <see cref="IDiagnostics"/> implementation</returns>
         protected override IDiagnostics GetDiagnostics()
         {
             return this.ApplicationContainer.Get<IDiagnostics>();
@@ -42,7 +42,7 @@
         /// <summary>
         /// Get INancyEngine
         /// </summary>
-        /// <returns>INancyEngine implementation</returns>
+        /// <returns>An <see cref="INancyEngine"/> implementation</returns>
         protected override sealed INancyEngine GetEngineInternal()
         {
             return this.ApplicationContainer.Get<INancyEngine>();
@@ -60,7 +60,7 @@
         /// <summary>
         /// Bind the bootstrapper's implemented types into the container.
         /// This is necessary so a user can pass in a populated container but not have
-        /// to take the responsibility of registering things like INancyModuleCatalog manually.
+        /// to take the responsibility of registering things like <see cref="INancyModuleCatalog"/> manually.
         /// </summary>
         /// <param name="applicationContainer">Application container to register into</param>
         protected override sealed void RegisterBootstrapperTypes(IKernel applicationContainer)
@@ -102,7 +102,7 @@
         /// Bind the given module types into the container
         /// </summary>
         /// <param name="container">Container to register into</param>
-        /// <param name="moduleRegistrationTypes">NancyModule types</param>
+        /// <param name="moduleRegistrationTypes"><see cref="INancyModule"/> types</param>
         protected override sealed void RegisterRequestContainerModules(IKernel container, IEnumerable<ModuleRegistration> moduleRegistrationTypes)
         {
             foreach (var moduleRegistrationType in moduleRegistrationTypes)
@@ -137,7 +137,7 @@
         /// Retrieve all module instances from the container
         /// </summary>
         /// <param name="container">Container to use</param>
-        /// <returns>Collection of NancyModule instances</returns>
+        /// <returns>Collection of <see cref="INancyModule"/> instances</returns>
         protected override sealed IEnumerable<INancyModule> GetAllModules(IKernel container)
         {
             return container.GetAll<INancyModule>();
