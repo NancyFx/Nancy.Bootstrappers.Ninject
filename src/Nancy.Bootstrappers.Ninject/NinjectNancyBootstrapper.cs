@@ -129,7 +129,7 @@
         /// Creates a per request child/nested container
         /// </summary>
         /// <returns>Request container instance</returns>
-        protected override sealed IKernel CreateRequestContainer()
+        protected override IKernel CreateRequestContainer()
         {
             return new ChildKernel(this.ApplicationContainer, new NinjectSettings { DefaultScopeCallback = StandardScopeCallbacks.Singleton });
         }
