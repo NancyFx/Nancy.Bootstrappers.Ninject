@@ -6,6 +6,7 @@
     using Nancy.Bootstrapper;
     using global::Ninject;
     using global::Ninject.Extensions.ChildKernel;
+    using global::Ninject.Infrastructure;
 
     /// <summary>
     /// Nancy bootstrapper for the Ninject container.
@@ -128,9 +129,9 @@
         /// Creates a per request child/nested container
         /// </summary>
         /// <returns>Request container instance</returns>
-        protected override sealed IKernel CreateRequestContainer()
+        protected override IKernel CreateRequestContainer()
         {
-            return new ChildKernel(this.ApplicationContainer);
+            return new ChildKernel(this.ApplicationContainer, new NinjectSettings { DefaultScopeCallback = StandardScopeCallbacks.Singleton });
         }
 
         /// <summary>
@@ -144,7 +145,7 @@
         }
 
         /// <summary>
-        /// Retreive a specific module instance from the container
+        /// Retrieve a specific module instance from the container
         /// </summary>
         /// <param name="container">Container to use</param>
         /// <param name="moduleType">Type of the module</param>
