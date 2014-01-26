@@ -46,6 +46,15 @@ protected override IKernel GetApplicationContainer()
 }
 ```
 
+You can also override the `CreateRequestContainer` method so that you could customize your child container. By default, the request container's binding scope is singleton as this would be the most common case.
+
+```c#
+protected override IKernel CreateRequestContainer()
+{
+    // Return request contaner instance
+}
+```
+
 ## Contributors
 
 * [Andreas Håkansson](http://github.com/thecodejunkie)
