@@ -34,10 +34,10 @@
         /// <summary>
         /// Gets all registered application registration tasks
         /// </summary>
-        /// <returns>An <see cref="System.Collections.Generic.IEnumerable{T}"/> instance containing <see cref="IApplicationRegistrations"/> instances.</returns>
-        protected override IEnumerable<IApplicationRegistrations> GetApplicationRegistrationTasks()
+        /// <returns>An <see cref="System.Collections.Generic.IEnumerable{T}"/> instance containing <see cref="IRegistrations"/> instances.</returns>
+        protected override IEnumerable<IRegistrations> GetRegistrationTasks()
         {
-            return this.ApplicationContainer.GetAll<IApplicationRegistrations>();
+            return this.ApplicationContainer.GetAll<IRegistrations>();
         }
 
         /// <summary>
