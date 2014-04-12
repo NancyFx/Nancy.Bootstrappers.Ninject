@@ -78,7 +78,19 @@
         {
             foreach (var typeRegistration in typeRegistrations)
             {
-                container.Bind(typeRegistration.RegistrationType).To(typeRegistration.ImplementationType).InSingletonScope();
+                switch (typeRegistration.Lifetime)
+                {
+                    case Lifetime.Transient:
+                        container.Bind(typeRegistration.RegistrationType).To(typeRegistration.ImplementationType).InTransientScope();
+                        break;
+                    case Lifetime.Singleton:
+                        container.Bind(typeRegistration.RegistrationType).To(typeRegistration.ImplementationType).InSingletonScope();
+                        break;
+                    case Lifetime.PerRequest:
+                        throw new InvalidOperationException("Unable to directly register a per request lifetime.");
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
         }
 
@@ -94,7 +106,19 @@
             {
                 foreach (var implementationType in collectionTypeRegistration.ImplementationTypes)
                 {
-                    container.Bind(collectionTypeRegistration.RegistrationType).To(implementationType).InSingletonScope();
+                    switch (collectionTypeRegistration.Lifetime)
+                    {
+                        case Lifetime.Transient:
+                            container.Bind(collectionTypeRegistration.RegistrationType).To(implementationType).InTransientScope();
+                            break;
+                        case Lifetime.Singleton:
+                            container.Bind(collectionTypeRegistration.RegistrationType).To(implementationType).InSingletonScope();
+                            break;
+                        case Lifetime.PerRequest:
+                            throw new InvalidOperationException("Unable to directly register a per request lifetime.");
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
                 }
             }
         }
@@ -108,7 +132,7 @@
         {
             foreach (var moduleRegistrationType in moduleRegistrationTypes)
             {
-                container.Bind(typeof (INancyModule)).To(moduleRegistrationType.ModuleType).Named(moduleRegistrationType.ModuleType.FullName);
+                container.Bind(typeof(INancyModule)).To(moduleRegistrationType.ModuleType).Named(moduleRegistrationType.ModuleType.FullName);
             }
         }
 

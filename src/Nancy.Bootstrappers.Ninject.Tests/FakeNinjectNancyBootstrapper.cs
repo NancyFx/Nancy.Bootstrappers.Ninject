@@ -1,7 +1,12 @@
 ﻿namespace Nancy.Bootstrappers.Ninject.Tests
 {
+    using System;
+    using System.Collections.Generic;
+
     using Bootstrapper;
     using global::Ninject;
+
+    using Nancy.Tests.Unit.Bootstrapper.Base;
 
     /// <summary>
     /// Fake Ninject boostrapper that can be used for testing.
@@ -20,6 +25,14 @@
         public FakeNinjectNancyBootstrapper(NancyInternalConfiguration configuration)
         {
             this.configuration = configuration;
+        }
+
+        protected override IEnumerable<Type> RegistrationTasks
+        {
+            get
+            {
+                return new[] { typeof(TestRegistrations) };
+            }
         }
 
         protected override NancyInternalConfiguration InternalConfiguration
