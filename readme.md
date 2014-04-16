@@ -4,11 +4,11 @@ A [bootstrapper](https://github.com/NancyFx/Nancy/wiki/Bootstrapper) implementat
 
 When Nancy detects that the `NinjectNancyBootstrapper` type is available in the AppDomain of your application, it will assume you want to use it, rather than the default one.
 
-The easiest way to get the latest version of `NinjectNancyBootstrapper` into your application is to install the `Nancy.Bootstrappers.Ninject` nuget.
+The easiest way to get the latest version of `NinjectNancyBootstrapper` in your application is to install the [`Nancy.Bootstrappers.Ninject` nuget package](http://www.nuget.org/packages/Nancy.Bootstrappers.Ninject/).
 
 ### Customizing
 
-By inheriting from `NinjectNancyBootstrapper` you will gain access to the `IKernel` of the application and request containers and can perform what ever reqistations that your application requires.
+By inheriting from `NinjectNancyBootstrapper` you will gain access to the `IKernel` of the application and request containers and can perform what ever registrations that your application requires.
 
 ```c#
 public class Bootstrapper : NinjectNancyBootstrapper
