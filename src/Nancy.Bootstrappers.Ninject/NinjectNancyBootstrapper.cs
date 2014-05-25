@@ -32,6 +32,20 @@
         }
 
         /// <summary>
+        /// Gets all registered request startup tasks
+        /// </summary>
+        /// <returns>An <see cref="IEnumerable{T}"/> instance containing <see cref="IRequestStartup"/> instances.</returns>
+        protected override IEnumerable<IRequestStartup> RegisterAndGetRequestStartupTasks(IKernel container, Type[] requestStartupTypes)
+        {
+            foreach (var requestStartupType in requestStartupTypes)
+            {
+                container.Bind(typeof(IRequestStartup)).To(requestStartupType).InSingletonScope();
+            }
+            
+            return container.GetAll<IRequestStartup>();
+        }
+
+        /// <summary>
         /// Gets all registered application registration tasks
         /// </summary>
         /// <returns>An <see cref="System.Collections.Generic.IEnumerable{T}"/> instance containing <see cref="IRegistrations"/> instances.</returns>
