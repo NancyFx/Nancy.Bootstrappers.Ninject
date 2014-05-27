@@ -14,8 +14,8 @@
     <projectUrl>http://nancyfx.org</projectUrl>
     <dependencies>
       <dependency id="Nancy" />
-      <dependency id="Ninject" version="[3,4)" />
-      <dependency id="Ninject.Extensions.ChildKernel" version="[3,4)" />
+      <dependency id="Ninject" version="3.0.0" />
+      <dependency id="Ninject.Extensions.ChildKernel" version="3.0" />
     </dependencies> 
     <tags>Nancy Ninject</tags>
   </metadata>
