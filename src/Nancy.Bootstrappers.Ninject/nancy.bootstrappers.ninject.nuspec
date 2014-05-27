@@ -9,13 +9,13 @@
     <summary>Nancy is a lightweight web framework for the .Net platform, inspired by Sinatra. Nancy aim at delivering a low ceremony approach to building light, fast web applications.</summary>
     <language>en-US</language>
     <copyright>Andreas Håkansson, Steven Robbins and contributors</copyright>
-	  <iconUrl>http://nancyfx.org/nancy-nuget.png</iconUrl>    
-	  <licenseUrl>https://github.com/NancyFx/Nancy/blob/master/license.txt</licenseUrl>
+    <iconUrl>http://nancyfx.org/nancy-nuget.png</iconUrl>    
+    <licenseUrl>https://github.com/NancyFx/Nancy/blob/master/license.txt</licenseUrl>
     <projectUrl>http://nancyfx.org</projectUrl>
-	<dependencies>
+    <dependencies>
       <dependency id="Nancy" />
-	  <dependency id="Ninject" />
-	  <dependency id="Ninject.Extensions.ChildKernel" />
+      <dependency id="Ninject" version="[3,4)" />
+      <dependency id="Ninject.Extensions.ChildKernel" version="[3,4)" />
     </dependencies> 
     <tags>Nancy Ninject</tags>
   </metadata>
