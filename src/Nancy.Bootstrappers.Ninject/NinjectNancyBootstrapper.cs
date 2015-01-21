@@ -166,8 +166,9 @@
         /// <summary>
         /// Creates a per request child/nested container
         /// </summary>
+        /// <param name="context">Current context</param>
         /// <returns>Request container instance</returns>
-        protected override IKernel CreateRequestContainer()
+        protected override IKernel CreateRequestContainer(NancyContext context)
         {
             return new ChildKernel(this.ApplicationContainer, new NinjectSettings { DefaultScopeCallback = StandardScopeCallbacks.Singleton });
         }
