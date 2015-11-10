@@ -1,12 +1,15 @@
-﻿namespace Nancy.Bootstrappers.Ninject
+namespace Nancy.Bootstrappers.Ninject
 {
     using System;
     using System.Collections.Generic;
-    using Diagnostics;
-    using Nancy.Bootstrapper;
+    
     using global::Ninject;
     using global::Ninject.Extensions.ChildKernel;
     using global::Ninject.Infrastructure;
+    
+    using Bootstrapper;
+    using Configuration;
+    using Diagnostics;
 
     /// <summary>
     /// Nancy bootstrapper for the Ninject container.
@@ -61,6 +64,25 @@
         protected override sealed INancyEngine GetEngineInternal()
         {
             return this.ApplicationContainer.Get<INancyEngine>();
+        }
+
+        /// <summary>
+        /// Gets the <see cref="INancyEnvironmentConfigurator"/> used by th.
+        /// </summary>
+        /// <returns>An <see cref="INancyEnvironmentConfigurator"/> instance.</returns>
+        protected override INancyEnvironmentConfigurator GetEnvironmentConfigurator()
+        {
+            return this.ApplicationContainer.Get<INancyEnvironmentConfigurator>();
+        }
+
+        /// <summary>
+        /// Registers an <see cref="INancyEnvironment"/> instance in the container.
+        /// </summary>
+        /// <param name="container">The container to register into.</param>
+        /// <param name="environment">The <see cref="INancyEnvironment"/> instance to register.</param>
+        protected override void RegisterNancyEnvironment(IKernel container, INancyEnvironment environment)
+        {
+            container.Bind<INancyEnvironment>().ToConstant(environment);
         }
 
         /// <summary>
