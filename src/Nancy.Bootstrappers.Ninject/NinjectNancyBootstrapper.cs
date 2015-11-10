@@ -1,14 +1,15 @@
-﻿using Nancy.Configuration;
-
 namespace Nancy.Bootstrappers.Ninject
 {
     using System;
     using System.Collections.Generic;
-    using Diagnostics;
-    using Nancy.Bootstrapper;
+    
     using global::Ninject;
     using global::Ninject.Extensions.ChildKernel;
     using global::Ninject.Infrastructure;
+    
+    using Bootstrapper;
+    using Configuration;
+    using Diagnostics;
 
     /// <summary>
     /// Nancy bootstrapper for the Ninject container.
