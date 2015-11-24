@@ -2,11 +2,9 @@ namespace Nancy.Bootstrappers.Ninject
 {
     using System;
     using System.Collections.Generic;
-    
     using global::Ninject;
     using global::Ninject.Extensions.ChildKernel;
     using global::Ninject.Infrastructure;
-    
     using Bootstrapper;
     using Configuration;
     using Diagnostics;
@@ -44,7 +42,7 @@ namespace Nancy.Bootstrappers.Ninject
             {
                 container.Bind(typeof(IRequestStartup)).To(requestStartupType).InSingletonScope();
             }
-            
+
             return container.GetAll<IRequestStartup>();
         }
 
@@ -73,6 +71,16 @@ namespace Nancy.Bootstrappers.Ninject
         protected override INancyEnvironmentConfigurator GetEnvironmentConfigurator()
         {
             return this.ApplicationContainer.Get<INancyEnvironmentConfigurator>();
+        }
+
+        /// <summary>
+        /// Get the <see cref="INancyEnvironment" /> instance.
+        /// </summary>
+        /// <returns>An configured <see cref="INancyEnvironment" /> instance.</returns>
+        /// <remarks>The boostrapper must be initialised (<see cref="INancyBootstrapper.Initialise" />) prior to calling this.</remarks>
+        public override INancyEnvironment GetEnvironment()
+        {
+            return this.ApplicationContainer.Get<INancyEnvironment>();
         }
 
         /// <summary>
