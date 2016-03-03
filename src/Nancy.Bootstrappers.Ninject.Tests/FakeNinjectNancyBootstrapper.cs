@@ -15,14 +15,14 @@
     {
         public bool RequestContainerConfigured { get; set; }
         public bool ApplicationContainerConfigured { get; set; }
-        private readonly NancyInternalConfiguration configuration;
+        private readonly Func<ITypeCatalog, NancyInternalConfiguration> configuration;
 
         public FakeNinjectNancyBootstrapper()
             : this(null)
         {
         }
 
-        public FakeNinjectNancyBootstrapper(NancyInternalConfiguration configuration)
+        public FakeNinjectNancyBootstrapper(Func<ITypeCatalog, NancyInternalConfiguration> configuration)
         {
             this.configuration = configuration;
         }
@@ -35,7 +35,7 @@
             }
         }
 
-        protected override NancyInternalConfiguration InternalConfiguration
+        protected override Func<ITypeCatalog, NancyInternalConfiguration> InternalConfiguration
         {
             get { return configuration ?? base.InternalConfiguration; }
         }
