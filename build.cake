@@ -125,12 +125,12 @@ Task("Test")
 
     using(var process = StartAndReturnProcess("mono", new ProcessSettings{Arguments = 
       xunit + " " + 
-      "test/Nancy.Bootstrappers.Ninject.Tests/bin/"+configuration+"/net452/unix-x64/Nancy.Bootstrappers.StructureMap.Tests.dll"}))
+      "test/Nancy.Bootstrappers.Ninject.Tests/bin/"+configuration+"/net452/unix-x64/Nancy.Bootstrappers.Ninject.Tests.dll"}))
     {
       process.WaitForExit();
       if(process.GetExitCode() != 0)
       {
-        throw new Exception("Nancy.Serialization.JsonNet.Tests failed");
+        throw new Exception("Nancy.Bootstrappers.Ninject.Tests failed");
       }
     }
   }
