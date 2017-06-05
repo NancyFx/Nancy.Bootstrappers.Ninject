@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Authors>Andreas Håkansson, Steven Robbins and contributors</Authors>
+    <CodeAnalysisRuleSet>..\..\dependencies\Nancy\Nancy.ruleset</CodeAnalysisRuleSet>
+    <Description>An Ninject bootstrapper for the Nancy web framework.</Description>
+    <DisableImplicitFrameworkReferences Condition=" '$(TargetFramework)' == 'net452' ">true</DisableImplicitFrameworkReferences>
+    <PackageIconUrl>http://nancyfx.org/nancy-nuget.png</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/NancyFx/Nancy/blob/master/license.txt</PackageLicenseUrl>
+    <PackageProjectUrl>http://nancyfx.org</PackageProjectUrl>
+    <PackageTags>Nancy;Ninject</PackageTags>
+    <TargetFramework>net452</TargetFramework>
+    <Version>2.0.0-clinteastwood</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../dependencies/Nancy/src/Nancy/Nancy.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ninject" Version="3.2.2" />
+    <PackageReference Include="Ninject.Extensions.ChildKernel" Version="3.2.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+  </ItemGroup>
+
+</Project>
