@@ -21,7 +21,7 @@ public class Bootstrapper : NinjectNancyBootstrapper
 
     protected override void ConfigureApplicationContainer(IKernel existingContainer)
     {
-        // Perform registation that should have an application lifetime
+        // Perform registration that should have an application lifetime
     }
 
     protected override void ConfigureRequestContainer(IKernel container, NancyContext context)
